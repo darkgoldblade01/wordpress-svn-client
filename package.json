@@ -2,33 +2,29 @@
   "name": "wordpress-svn",
   "version": "0.0.2",
   "description": "A command-line tool for managing Wordpress SVN projects.",
-  "main": "snippet.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/tpettersen/bitbucket-snippet"
+    "url": "https://github.com/darkgoldblade01/wordpress-svn-client"
   },
   "keywords": [
-    "bitbucket",
-    "snippet"
+    "wordpress",
+    "svn",
+    "client",
+    "plugins",
+    "themes"
   ],
-  "author": "Tim Pettersen",
+  "author": "Brian Logan <@darkgoldblade01>",
   "license": "Apache-2.0",
   "bin": {
     "wordpress": "./index.js"
   },
   "dependencies": {
-    "bitbucket-auth-token": "0.0.3",
     "chalk": "^1.1.1",
-    "co": "^4.6.0",
-    "co-prompt": "^1.0.0",
     "commander": "^2.9.0",
-    "inquirer": "^5.1.0",
-    "jsonfile": "^2.2.3",
-    "progress": "^1.1.8",
-    "rsvp": "^3.1.0",
-    "superagent": "^1.4.0"
+    "inquirer": "^5.1.0"
   }
 }
