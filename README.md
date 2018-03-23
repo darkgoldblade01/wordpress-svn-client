@@ -1,4 +1,4 @@
-# wordpress-svn-client
+# WordPress SVN Client
 
 A client designed to help YOU interact with the WordPress SVN repositories.
 
