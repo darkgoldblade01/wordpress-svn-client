@@ -74,11 +74,11 @@ module.exports = function (command, opts) {
             message = '';
         }
         log(chalk.bold.blue('Pushing new version to Wordpress SVN'));
-        // exec("svn ci -m '" + message + "'", (err, stdout, stderr) => {
-        //     if(!err) {
-        //         log(chalk.bold.blue('New version pushed!'));
-        //     }
-        // });
+        exec("svn ci -m '" + message + "'", (err, stdout, stderr) => {
+            if(!err) {
+                log(chalk.bold.blue('New version pushed!'));
+            }
+        });
     };
 
     this.help = function() {
