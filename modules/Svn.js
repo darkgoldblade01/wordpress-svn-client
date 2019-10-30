@@ -16,7 +16,7 @@ module.exports = function (command, opts) {
 
     this.parse = function() {
         switch(this.command) {
-            case 'tag-version':
+            case 'tag':
                 this.tag();
                 break;
             case 'push':
@@ -32,6 +32,7 @@ module.exports = function (command, opts) {
     };
 
     this.tag = function() {
+        const vm = this;
         clear();
         inquirer.prompt([
             {
@@ -51,7 +52,11 @@ module.exports = function (command, opts) {
                 if(!err) {
                     log(chalk.bold.blue('New tag created'));
                     if(answers.confirm) {
-                        this.push('tagging version ' + answers.version);
+                        exec("svn ci -m 'tagging version " + answers.version + "'", (err, stdout, stderr) => {
+                            if (!err) {
+                                log(chalk.bold.blue('New version pushed!'));
+                            }
+                        });
                     }
                 }
             });
@@ -68,16 +73,21 @@ module.exports = function (command, opts) {
         });
     };
 
-    this.push = function(message) {
+    this.push = function() {
         clear();
-        if(!message || message === undefined) {
-            message = '';
-        }
-        log(chalk.bold.blue('Pushing new version to Wordpress SVN'));
-        exec("svn ci -m '" + message + "'", (err, stdout, stderr) => {
-            if(!err) {
-                log(chalk.bold.blue('New version pushed!'));
+        inquirer.prompt([
+            {
+                type: 'input',
+                message: 'Commit message:',
+                name: 'message'
             }
+        ]).then(function(answers) {
+            log(chalk.bold.blue('Pushing new version to Wordpress SVN'));
+            exec("svn ci -m '" + answers.message + "'", (err, stdout, stderr) => {
+                if (!err) {
+                    log(chalk.bold.blue('New version pushed!'));
+                }
+            });
         });
     };
 

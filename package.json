@@ -1,6 +1,6 @@
 {
   "name": "wordpress-svn",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A command-line tool for managing Wordpress SVN projects.",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,7 @@
     "chalk": "^1.1.1",
     "co-prompt": "^1.0.0",
     "commander": "^2.20.3",
-    "inquirer": "^5.2.0"
+    "inquirer": "^5.2.0",
+    "progress": "^2.0.3"
   }
 }
