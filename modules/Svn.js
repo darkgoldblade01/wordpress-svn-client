@@ -61,9 +61,9 @@ module.exports = function (command, opts) {
     this.pull = function() {
         clear();
         log(chalk.bold.blue('Pulling the updates down from WordPress SVN'));
-        exec("svn ci -m '" + message + "'", (err, stdout, stderr) => {
+        exec("svn up", (err, stdout, stderr) => {
             if(!err) {
-                log(chalk.bold.blue('New version pushed!'));
+                log(chalk.bold.blue('Pulled latest from SVN.'));
             }
         });
     };
