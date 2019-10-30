@@ -1,6 +1,6 @@
 {
   "name": "wordpress-svn",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A command-line tool for managing Wordpress SVN projects.",
   "main": "index.js",
   "scripts": {
